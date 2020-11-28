@@ -1,0 +1,32 @@
+a {
+  font-size: 1.2rem;
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.link {
+  font-weight: 0.2px !important;
+  display: block;
+}
+
+.navbar-container {
+  margin: 1rem;
+  text-align: left;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  flex-direction: row;
+}
+
+.header-name {
+  flex: 1;
+  margin-left: 1rem;
+  margin-right: 2rem;
+}
+
+.links-flex {
+  text-align: left;
+  display: inline-flex;
+  flex-direction: row;
+  padding: 0;
+  margin: 0;
+}
