@@ -3,6 +3,8 @@ import {HashRouter} from 'react-router-dom';
 import BlogContainer from '../../containers/blog-container/blog-container';
 import Footer from '../footer/footer';
 import Navbar from '../navbar/navbar';
+import './app.css';
+
 class App extends Component {
   constructor(props) {
     super(props);

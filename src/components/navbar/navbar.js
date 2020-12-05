@@ -1,14 +1,20 @@
-import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import "./navbar.css";
+
 class Navbar extends Component {
   render() {
     return (
-      <div>
-        <h4>header</h4>
-        <div>
-          <Link to='/'>Home</Link>
-          <Link to='/about'>About</Link>
-        </div>
+      <div class="flex-container">
+        <Link to="/" class="header header-name">Or Yaacov</Link>
+        <ul class="flex-container">
+          <li> 
+          <Link to="/tutorials">Tutorials</Link>
+          </li>
+          <li>
+          <Link to="/about">About</Link>
+          </li>
+        </ul>
       </div>
     );
   }
