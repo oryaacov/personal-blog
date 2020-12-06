@@ -16,6 +16,13 @@
   font-size: 2rem;
 }
 
+.flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
 body {
   font-family: EB Garamond, serif;
   --bg-opacity: 1;

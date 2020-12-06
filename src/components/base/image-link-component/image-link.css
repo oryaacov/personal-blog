@@ -1,0 +1,15 @@
+img {
+  width: 2rem;
+  height: 2rem;
+  max-width: 2rem;
+}
+
+a {
+  font-size: 1rem;
+  vertical-align: middle;
+  display: contents;
+}
+
+.link{
+    margin: 1rem;
+}

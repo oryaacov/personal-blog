@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
+import React, { Component } from "react";
 class Gallery extends Component {
   render() {
-    return <div>main gallery</div>;
+    return <div>MAIN gallery</div>;
   }
 }
 export default Gallery;

@@ -3,6 +3,7 @@ import {HashRouter} from 'react-router-dom';
 import BlogContainer from '../../containers/blog-container/blog-container';
 import Footer from '../footer/footer';
 import Navbar from '../navbar/navbar';
+import Profile from '../profile/profile';
 import './app.css';
 
 class App extends Component {
@@ -16,6 +17,7 @@ class App extends Component {
       <div>
         <HashRouter>
           <Navbar></Navbar>
+          <Profile></Profile>
           <BlogContainer></BlogContainer>
         </HashRouter>
         <Footer></Footer>

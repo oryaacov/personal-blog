@@ -12,10 +12,12 @@
     "lint": "eslint src/**/*.js"
   },
   "dependencies": {
+    "file-loader": "^6.2.0",
     "generate-react-cli": "^5.1.0",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "url-loader": "^4.1.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.0",
