@@ -5,19 +5,23 @@ import "./navbar.css";
 class Navbar extends Component {
   render() {
     return (
-      <div class="flex-container navbar-container">
-        <Link to="/" class="header header-name">Or Yaacov</Link>
-        <ul class="flex-container">
-          <li> 
-          <Link to="/tutorials">Tutorials</Link>
-          </li>
-          <li>
-          <Link to="/about">Articles</Link>
-          </li>
-          <li>
-          <Link to="/about">About</Link>
-          </li>
-        </ul>
+      <div class="navbar-container">
+       <div class="links-flex">
+        <Link to="/" class="header header-name">
+          Or Yaacov
+        </Link>
+        </div>
+        <div class="links-flex">
+          <Link class="link" to="/tutorials">
+            Tutorials
+          </Link>
+          <Link class="link" to="/about">
+            Articles
+          </Link>
+          <Link class="link" to="/about">
+            About
+          </Link>
+        </div>
       </div>
     );
   }

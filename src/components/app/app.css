@@ -22,6 +22,11 @@
   justify-content: center;
 }
 
+.flex-app-container{
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: stretch;
+}
 
 body {
   font-family: EB Garamond, serif;
@@ -29,6 +34,7 @@ body {
   --text-opacity: 1;
   color: #424242;
   color: rgba(66, 66, 66, var(--text-opacity));
+  text-align: center;
 }
 
 html {

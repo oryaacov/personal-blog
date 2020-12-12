@@ -14,7 +14,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div class="flex-app-container">
         <HashRouter>
           <Navbar></Navbar>
           <Profile></Profile>

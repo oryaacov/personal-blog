@@ -6,7 +6,7 @@ class ImageLink extends Component {
     return (
       <div class="flex-container link">
         <a href={this.props.href}>
-          <img src={this.props.imageSrc}></img>
+          <img class="link-image" src={this.props.imageSrc}></img>
           {this.props.text}
         </a>
       </div>

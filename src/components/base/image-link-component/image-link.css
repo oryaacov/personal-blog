@@ -5,6 +5,7 @@ img {
 }
 
 a {
+  flex: 4;
   font-size: 1rem;
   vertical-align: middle;
   display: contents;
@@ -12,4 +13,8 @@ a {
 
 .link{
     margin: 1rem;
+}
+
+.link-image{
+  flex: 1;
 }
