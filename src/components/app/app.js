@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {HashRouter} from 'react-router-dom';
 import BlogContainer from '../../containers/blog-container/blog-container';
 import Footer from '../footer/footer';
+import Data from "../../public/data.json";
 import Navbar from '../navbar/navbar';
 import Profile from '../profile/profile';
 import './app.css';
@@ -16,8 +17,8 @@ class App extends Component {
     return (
       <div class="flex-app-container">
         <HashRouter>
-          <Navbar></Navbar>
-          <Profile></Profile>
+          <Navbar fullName={Data.profile.fullname}></Navbar>
+          <Profile profile={Data.profile}></Profile>
           <BlogContainer></BlogContainer>
         </HashRouter>
         <Footer></Footer>

@@ -13,13 +13,10 @@ class Profile extends Component {
           ></img>
         </div>
         <div class="profile-info-flex">
-          <h1 class="name-h1 profile-text">Or Yaacov</h1>
-          <h2 class="profile-text">Full-Stack Developer, Love to code.</h2>
-          <p class="profile-text">
-            Enthusiastic programmer, passionate about everything from software
-            to hardware
-          </p>
-          <LinksBar></LinksBar>
+          <h1 class="name-h1 profile-text">{this.props.profile.fullname}</h1>
+          <h2 class="profile-text">{this.props.profile.title}</h2>
+          <p class="profile-text">{this.props.profile.message}</p>
+          <LinksBar links={this.props.profile.links}></LinksBar>
         </div>
       </div>
     );

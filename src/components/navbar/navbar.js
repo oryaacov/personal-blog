@@ -8,7 +8,7 @@ class Navbar extends Component {
       <div class="navbar-container">
        <div class="links-flex">
         <Link to="/" class="header header-name">
-          Or Yaacov
+          {this.props.fullName}
         </Link>
         </div>
         <div class="links-flex">
