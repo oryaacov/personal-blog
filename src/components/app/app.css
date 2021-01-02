@@ -22,7 +22,7 @@
   justify-content: center;
 }
 
-.flex-app-container{
+.flex-app-container {
   flex-wrap: wrap;
   flex-direction: column;
   align-items: stretch;
@@ -43,3 +43,13 @@ html {
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   line-height: 1.5;
 }
+
+.link{
+  cursor: pointer;
+}
+
+.link:hover{
+  color: #111;
+  text-decoration: underline;
+}
+

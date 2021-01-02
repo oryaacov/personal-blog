@@ -5,20 +5,20 @@ import "./navbar.css";
 class Navbar extends Component {
   render() {
     return (
-      <div class="navbar-container">
-       <div class="links-flex">
-        <Link to="/" class="header header-name">
-          {this.props.fullName}
-        </Link>
+      <div className="navbar-container">
+        <div className="links-flex">
+          <Link to="/" className="header header-name">
+            {this.props.fullName}
+          </Link>
         </div>
-        <div class="links-flex">
-          <Link class="link" to="/tutorials">
+        <div className="links-flex">
+          <Link className="link" to="/tutorials">
             Tutorials
           </Link>
-          <Link class="link" to="/about">
+          <Link className="link" to="/about">
             Articles
           </Link>
-          <Link class="link" to="/about">
+          <Link className="link" to="/about">
             About
           </Link>
         </div>
@@ -26,4 +26,5 @@ class Navbar extends Component {
     );
   }
 }
+
 export default Navbar;

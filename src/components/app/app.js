@@ -1,11 +1,12 @@
-import React, {Component} from 'react';
-import {HashRouter} from 'react-router-dom';
-import BlogContainer from '../../containers/blog-container/blog-container';
-import Footer from '../footer/footer';
+import React, { Component } from "react";
+import { HashRouter } from "react-router-dom";
+import BlogContainer from "../../containers/blog-container/blog-container";
+import Footer from "../footer/footer";
 import Data from "../../public/data.json";
-import Navbar from '../navbar/navbar';
-import Profile from '../profile/profile';
-import './app.css';
+import Navbar from "../navbar/navbar";
+import Profile from "../profile/profile";
+import "./app.css";
+import LinksBar from "../links-bar/links-bar";
 
 class App extends Component {
   constructor(props) {
@@ -15,13 +16,16 @@ class App extends Component {
 
   render() {
     return (
-      <div class="flex-app-container">
+      <div className="flex-app-container">
         <HashRouter>
           <Navbar fullName={Data.profile.fullname}></Navbar>
           <Profile profile={Data.profile}></Profile>
-          <BlogContainer></BlogContainer>
+          <BlogContainer
+            profile={Data.profile}
+            thumbnails={Data.thumbnails}
+          ></BlogContainer>
         </HashRouter>
-        <Footer></Footer>
+        <Footer profile={Data.profile}></Footer>
       </div>
     );
   }
