@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import "./image-link.css";
+import React, {Component} from 'react';
+import './image-link.css';
 
 class ImageLink extends Component {
   render() {

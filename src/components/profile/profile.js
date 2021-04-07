@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import LinksBar from "../links-bar/links-bar";
-import "./profile.css";
+import React, {Component} from 'react';
+import LinksBar from '../links-bar/links-bar';
+import './profile.css';
 
 class Profile extends Component {
   render() {
@@ -9,7 +9,7 @@ class Profile extends Component {
         <div>
           <img
             className="profile-image"
-            src="https://media-exp1.licdn.com/dms/image/C4E03AQGM1OrFrgewkg/profile-displayphoto-shrink_200_200/0/1561146151867?e=1612396800&v=beta&t=1gaBVdcyORr5geahLKggsmFPA_Eghk4EexCMg6Xj_fg"
+            src="https://avatars.githubusercontent.com/u/48175064?s=400&u=06d14e0f94bd4fbb44cd15704e765ac8866c7a14&v=4"
           ></img>
         </div>
         <div className="profile-info-flex">

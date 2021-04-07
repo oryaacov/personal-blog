@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import ArticleThumbnail from "../../components/article/article-thumbnail";
-import "./article-container.css";
+import React, {Component} from 'react';
+import ArticleThumbnail from '../../components/article/article-thumbnail';
+import './article-container.css';
 
 class ArticleContainer extends Component {
   render() {

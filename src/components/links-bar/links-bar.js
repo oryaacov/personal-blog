@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import ImageLink from "../base/image-link-component/image-link";
+import React, {Component} from 'react';
+import ImageLink from '../base/image-link-component/image-link';
 
 class LinksBar extends Component {
   render() {

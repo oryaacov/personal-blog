@@ -1,9 +1,8 @@
-import React, { Component } from "react";
-import Gallery from "../../components/gallery/gallery";
-import About from "../../components/about/about";
-import Article from "../../components/article/article";
-import { Route, Switch } from "react-router-dom";
-import ArticleContainer from "../article-container/article-container";
+import React, {Component} from 'react';
+import About from '../../components/about/about';
+import Article from '../../components/article/article';
+import {Route, Switch} from 'react-router-dom';
+import ArticleContainer from '../article-container/article-container';
 
 class BlogContainer extends Component {
   render() {
@@ -14,7 +13,7 @@ class BlogContainer extends Component {
           exact
           component={() => (
             <ArticleContainer
-              key={"A" + Math.random()}
+              key={'A' + Math.random()}
               thumbnails={this.props.thumbnails}
             />
           )}

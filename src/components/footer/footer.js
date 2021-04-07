@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import LinksBar from "../links-bar/links-bar";
-import "./footer.css";
+import React, {Component} from 'react';
+import LinksBar from '../links-bar/links-bar';
+import './footer.css';
 
 class Footer extends Component {
   render() {

@@ -5,25 +5,26 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "babel-node --presets es2015,stage-0 --eval \"require('./tools/clean').default().catch(err => console.log(err.stack))\"",
-    "prebuild": "npm run clean",
-    "build": "babel-node --presets es2015,stage-0 --eval \"require('./tools/build').default().catch(err => console.log(err.stack))\"",
-    "serve": "NODE_ENV=development webpack-dev-server --mode development",
+    "build": "react-scripts build",
+    "serve": "NODE_ENV=development webpack serve --mode development",
     "start": "npm run clean && npm run serve",
     "lint": "eslint src/**/*.js"
   },
   "dependencies": {
-    "generate-react-cli": "^5.1.0",
-    "react": "^16.8.1",
-    "react-dom": "^16.8.1",
-    "react-router-dom": "^5.2.0",
-    "require-context": "^1.1.0"
-  },
-  "devDependencies": {
     "@babel/cli": "^7.1.0",
     "@babel/core": "^7.1.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.2",
+    "generate-react-cli": "^5.1.0",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1",
+    "react-ga": "^3.3.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^4.0.3",
+    "require-context": "^1.1.0"
+  },
+  "devDependencies": {
     "css-loader": "^1.0.0",
     "eslint": "^7.14.0",
     "eslint-config-google": "^0.14.0",
@@ -36,8 +37,18 @@
     "react-hot-loader": "^4.3.11",
     "style-loader": "^0.23.0",
     "url-loader": "^4.1.1",
-    "webpack": "^4.19.1",
-    "webpack-cli": "^3.1.1",
-    "webpack-dev-server": "^3.1.8"
+    "webpack-cli": "^4.6.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
