@@ -1,16 +1,14 @@
 package httpserver
 
 import (
-	"fmt"
-	"net/http"
 	"time"
 
 	"github.com/gin-gonic/gin"
 	cors "github.com/itsjamie/gin-cors"
 	"go.uber.org/fx"
 
-	article "github.com/oryaacov/personal-blog/internal/articles"
 	"github.com/oryaacov/personal-blog/internal/common"
+	"github.com/oryaacov/personal-blog/internal/controllers"
 )
 
 type HTTPServer struct {
@@ -20,29 +18,35 @@ type HTTPServer struct {
 
 type HTTPServerDeps struct {
 	fx.In
-	Config         *common.Config
-	ArticleHandler *article.ArticleHandler
+	Config common.Config
+	controllers.ArticleController
 }
 
-func InitHttpServer(deps HTTPServerDeps) {
-	router := gin.New()
-	router.Use(cors.Middleware(cors.Config{
-		Origins:         deps.Config.WebServer.AllowedOrigins,
-		Methods:         deps.Config.WebServer.AllowedMethods,
-		RequestHeaders:  deps.Config.WebServer.AllowedHeaders,
+func (s *HTTPServer) setRoutes() {
+	s.Router.GET("/api/v1/articles", s.deps.ArticleController.GetAll)
+}
+
+func (s *HTTPServer) setMiddlewares() {
+	s.Router.Use(cors.Middleware(cors.Config{
+		Origins:         s.deps.Config.WebServer.AllowedOrigins,
+		Methods:         s.deps.Config.WebServer.AllowedMethods,
+		RequestHeaders:  s.deps.Config.WebServer.AllowedHeaders,
 		MaxAge:          50 * time.Second,
 		Credentials:     true,
 		ValidateHeaders: false,
 	}))
+	s.Router.Use(gin.Recovery())
+	s.Router.Use(VerifyHeader())
+}
 
-	router.Use(gin.Recovery())
-	router.Use(VerifyHeader())
+func NewHttpServer(deps HTTPServerDeps) HTTPServer {
+	server := HTTPServer{Router: gin.New(), deps: deps}
+	server.setMiddlewares()
+	server.setRoutes()
 
-	router.StaticFS(fmt.Sprintf("/%s",
-		deps.Config.WebServer.BaseURL),
-		http.Dir(deps.Config.WebServer.StaticFilesLocation))
+	return server
+}
 
-	router.GET("/api/v1/articles", deps.ArticleHandler.Test)
-
-	router.Run(fmt.Sprintf(":8080"))
+func ListenAndServer(server HTTPServer) {
+	server.Router.Run()
 }

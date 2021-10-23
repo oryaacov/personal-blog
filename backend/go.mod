@@ -14,6 +14,7 @@ require (
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/spf13/viper v1.9.0
 	github.com/ugorji/go v1.2.6 // indirect
+	go.mongodb.org/mongo-driver v1.7.3 // indirect
 	go.uber.org/fx v1.14.2
 	go.uber.org/zap v1.17.0
 	golang.org/x/crypto v0.0.0-20210921155107-089bfa567519 // indirect

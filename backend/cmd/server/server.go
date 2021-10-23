@@ -3,6 +3,7 @@ package main
 import (
 	article "github.com/oryaacov/personal-blog/internal/articles"
 	"github.com/oryaacov/personal-blog/internal/common"
+	"github.com/oryaacov/personal-blog/internal/controllers"
 	"github.com/oryaacov/personal-blog/internal/core"
 	"github.com/oryaacov/personal-blog/internal/httpserver"
 	"github.com/oryaacov/personal-blog/pkg/service"
@@ -18,11 +19,13 @@ func main() {
 		fx.Provide(
 			func() service.Name { return service.ServiceName(serviceName) },
 			common.BuildConfig,
-			article.CreateArticleHandler,
 			core.InitDB,
+			article.NewArticleHandler,
+			controllers.NewArticleController,
+			httpserver.NewHttpServer,
 		),
 		fx.Invoke(
-			httpserver.InitHttpServer,
+			httpserver.ListenAndServer,
 		),
 	)
 }
