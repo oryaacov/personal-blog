@@ -18,26 +18,18 @@ module.exports = {
       },
       {
         test: /\.(jpe?g|png|gif|woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/,
-        loader: 'url-loader?limit=100000',
+        loader: 'url-loader',
+        options: {
+            limit: 1000,
+            name : 'assets/img/[name].[ext]'
+        }
       },
     ],
   },
-  resolve: {extensions: ['*', '.js', '.jsx']},
+  resolve: {extensions: ['.js', '.jsx']},
   output: {
     path: path.resolve(__dirname, 'dist/'),
     publicPath: '/dist/',
     filename: 'bundle.js',
-  },
-  devServer: {
-    contentBase: path.join(__dirname, 'public/'),
-    port: 3000,
-    publicPath: 'http://localhost:3000/dist/',
-    hotOnly: true,
-  },
-  watchOptions: {
-    ignored: [
-      /node_modules([\\]+|\/)+(?!some_npm_module_name)/,
-      /\some_npm_module_name([\\]+|\/)node_modules/,
-    ],
   },
 };
