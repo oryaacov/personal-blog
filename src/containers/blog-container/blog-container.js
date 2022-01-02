@@ -11,13 +11,7 @@ class BlogContainer extends Component {
         <Route
           path="/"
           exact
-          element={
-            <ArticleContainer
-              key={'A' + Math.random()}
-              thumbnails={this.props.thumbnails}
-            />
-          }
-        />
+          element={<ArticleContainer/>}/>
         <Route path="/about" exact element={<About/>} />
         <Route path="/article" exact element={<Article/>} />
         <Route element={<Error/>} />

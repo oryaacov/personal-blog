@@ -24,7 +24,6 @@ class App extends Component {
           <Profile profile={Data.profile}></Profile>
           <BlogContainer
             profile={Data.profile}
-            thumbnails={Data.thumbnails}
           ></BlogContainer>
         </HashRouter>
         <Footer profile={Data.profile}></Footer>
