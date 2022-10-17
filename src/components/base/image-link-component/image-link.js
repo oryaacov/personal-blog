@@ -1,17 +1,13 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './image-link.css';
 
-class ImageLink extends Component {
-  render() {
-    return (
-      <div className="flex-container link">
-        <a href={this.props.href}>
-          <img className="link-image" src={this.props.imageSrc}></img>
-          {this.props.text}
-        </a>
-      </div>
-    );
-  }
+const ImageLink = (props) => {
+  return (
+      <a className="image-link" href={props.href}>
+        <img className="link-image" src={props.imageSrc}></img>
+        <div className="link-text"><p>{props.text}</p></div>
+      </a>
+  );
 }
 
 export default ImageLink;

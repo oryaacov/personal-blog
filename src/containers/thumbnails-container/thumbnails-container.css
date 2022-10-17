@@ -1,6 +1,8 @@
-.thumbnail-container {
+.thumbnails-container {
+  display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
-  margin: 3 rem;
+  justify-content: center;
 }
 
 .spinner-container {

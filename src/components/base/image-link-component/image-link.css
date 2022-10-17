@@ -1,20 +1,22 @@
-img {
-  width: 2rem;
-  height: 2rem;
-  max-width: 2rem;
-}
-
-a {
-  flex: 4;
-  font-size: 1rem;
-  vertical-align: middle;
-  display: contents;
-}
-
-.link {
+.image-link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
   margin: 1rem;
 }
 
 .link-image {
   flex: 1;
+  width: 2rem;
+  height: 2rem;
+  max-width: 2rem;
+}
+
+.link-text {
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

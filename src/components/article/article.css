@@ -1,0 +1,28 @@
+.article-container {
+    display: flex;
+    text-align: left;
+    align-items: center;
+    justify-content: center;
+}
+
+.article {
+    text-align: left;
+    padding: 2rem;
+    font-size: 1.2rem;
+    max-width: 70vw;
+}
+
+.article img {
+    max-width: 60vw;
+}
+
+.article code {
+    max-width: 60vw;
+    display: block;
+    white-space: pre-wrap   
+}
+
+.article p > img {
+    display: block;
+    margin: 0 auto;
+  }

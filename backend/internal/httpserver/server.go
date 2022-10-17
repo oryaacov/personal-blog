@@ -1,6 +1,7 @@
 package httpserver
 
 import (
+	"fmt"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -20,10 +21,12 @@ type HTTPServerDeps struct {
 	fx.In
 	Config common.Config
 	controllers.ArticleController
+	controllers.ThumbnailsController
 }
 
 func (s *HTTPServer) setRoutes() {
-	s.Router.GET("/api/v1/articles", s.deps.ArticleController.GetAll)
+	s.Router.GET("/api/v1/thumbnails", s.deps.ThumbnailsController.GetAll)
+	s.Router.GET("/api/v1/articles/:id", s.deps.ArticleController.GetArticleById)
 }
 
 func (s *HTTPServer) setMiddlewares() {
@@ -48,5 +51,5 @@ func NewHttpServer(deps HTTPServerDeps) HTTPServer {
 }
 
 func ListenAndServer(server HTTPServer) {
-	server.Router.Run()
+	server.Router.Run(fmt.Sprintf("%s:%d", server.deps.Config.WebServer.BaseURL, server.deps.Config.WebServer.Port))
 }

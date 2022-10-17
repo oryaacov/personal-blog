@@ -1,0 +1,27 @@
+.article-thumbnail-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 35rem;
+  margin-left: 5rem;
+  margin-right: 5rem;
+  margin-top: 1rem;
+  max-height: 100%;
+}
+
+.thumbnail-img {
+  cursor: pointer;
+  min-width: 10rem;
+  min-height: 10rem;
+  max-width: 15rem;
+}
+
+.thumbnail-summary {
+  margin-top: 1rem;
+}
+
+.thumbnail-date {
+  margin-top: 1rem;
+  text-align: center;
+  width: 100%;
+}

@@ -6,6 +6,7 @@ import (
 	"github.com/oryaacov/personal-blog/internal/controllers"
 	"github.com/oryaacov/personal-blog/internal/core"
 	"github.com/oryaacov/personal-blog/internal/httpserver"
+	"github.com/oryaacov/personal-blog/internal/thumbnails"
 	"github.com/oryaacov/personal-blog/pkg/service"
 	"go.uber.org/fx"
 )
@@ -20,8 +21,10 @@ func main() {
 			func() service.Name { return service.ServiceName(serviceName) },
 			common.BuildConfig,
 			core.InitDB,
+			thumbnails.NewThumbnailsHandler,
 			article.NewArticleHandler,
 			controllers.NewArticleController,
+			controllers.NewThumbnailsController,
 			httpserver.NewHttpServer,
 		),
 		fx.Invoke(

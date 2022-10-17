@@ -1,4 +1,4 @@
-package logger
+package log
 
 import (
 	"fmt"
@@ -56,23 +56,6 @@ func init() {
 
 func Log() *Logger {
 	return logger
-}
-
-func (l *Logger) Debug(msg string, fields ...zap.Field) {
-	l.Debug(msg, fields...)
-}
-
-func (l *Logger) Info(msg string, fields ...zap.Field) {
-	fmt.Println(msg)
-	l.Info(msg, fields...)
-}
-
-func (l *Logger) Warn(msg string, fields ...zap.Field) {
-	l.Warn(msg, fields...)
-}
-
-func (l *Logger) Error(msg string, fields ...zap.Field) {
-	l.Error(msg, fields...)
 }
 
 func (l *Logger) Printf(format string, v ...interface{}) {
