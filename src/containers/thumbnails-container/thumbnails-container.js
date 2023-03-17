@@ -6,7 +6,6 @@ import axios from 'axios';
 import { spinner } from '../../components/common/spinner';
 import { baseUrl } from '../../utils/config';
 const loadThumbnails = async () => {
-  console.log("test", `${baseUrl}/api/v1/thumbnails`)
   return (
     await axios.get(`${baseUrl}/api/v1/thumbnails`)
   ).data;
