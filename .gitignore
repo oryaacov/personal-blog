@@ -10,3 +10,4 @@ backend/bin
 npm-debug.log
 .idea
 src/public/data.json
+public/thumbnails/*
