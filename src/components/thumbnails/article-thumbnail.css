@@ -3,9 +3,7 @@
   flex-direction: column;
   justify-content: space-between;
   max-width: 35rem;
-  margin-left: 5rem;
-  margin-right: 5rem;
-  margin-top: 1rem;
+  margin: 2rem 5rem 2rem 5rem;
   max-height: 100%;
 }
 
