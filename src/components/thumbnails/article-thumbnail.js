@@ -11,10 +11,16 @@ const ArticleThumbnail = (props) => {
         <div className='thumbnail-summary'>{props.summary}</div>
       </Link>
       <div className='thumbnail-date'>
-        {new Date(props.publishDate).toUTCString().replace('GMT', '')}
+        {dateToHumanReadableString(props.publishDate)}
       </div>
     </div>
   );
+}
+
+const dateToHumanReadableString = (date) => {
+  const utcDateString = new Date(date).toUTCString().split(' ');
+
+  return utcDateString.slice(0, -2).join(' ');
 }
 
 export default ArticleThumbnail;
