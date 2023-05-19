@@ -8,6 +8,7 @@ import (
 	"github.com/oryaacov/personal-blog/internal/core"
 	"github.com/oryaacov/personal-blog/internal/models"
 	"github.com/oryaacov/personal-blog/pkg/mongoutils"
+	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"go.uber.org/fx"
@@ -18,8 +19,13 @@ const (
 )
 
 var (
-	defaultGetAllOptions = options.Find().SetLimit(thumbnailsLimit)
+	getAllSortByPriorityDescOptions *options.FindOptions
 )
+
+func init() {
+	getAllSortByPriorityDescOptions = options.Find().SetLimit(thumbnailsLimit)
+	getAllSortByPriorityDescOptions.SetSort( bson.D{{Key: "priority", Value: -1}})
+}
 
 type ThumbnailsHandler struct {
 	deps ThumbnailsHandlerDeps
@@ -39,7 +45,7 @@ func NewThumbnailsHandler(DB *core.DB, Config common.Config) ThumbnailsHandler {
 }
 
 func (h *ThumbnailsHandler) GetAll(ctx context.Context) ([]models.Thumbnail, error) {
-	cur, err := h.deps.Collection.Find(ctx, mongoutils.EmptyFilter, defaultGetAllOptions)
+	cur, err := h.deps.Collection.Find(ctx, mongoutils.EmptyFilter, getAllSortByPriorityDescOptions)
 	if err != nil {
 		return nil, fmt.Errorf("failed to query thumbnails with: %w", err)
 	}
@@ -53,8 +59,8 @@ func (h *ThumbnailsHandler) GetAll(ctx context.Context) ([]models.Thumbnail, err
 		}
 
 		res = append(res, thumbnail)
-
 	}
 
 	return res, nil
 }
+

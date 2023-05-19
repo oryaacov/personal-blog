@@ -6,4 +6,3 @@ type Article struct {
 	Body        string `json:"body" bson:"body"`
 	PublishedAt uint   `json:"date" bson:"publish_date"`
 }
-
