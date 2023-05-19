@@ -6,7 +6,7 @@ const ArticleThumbnail = (props) => {
   return (
     <div className="article-thumbnail-box">
       <Link to={`/articles/${props.id}`}>
-        <h2 className="link">{props.title}</h2>
+        <h2 className="thumbnail-link">{props.title}</h2>
         <img className="thumbnail-img" src={props.image}></img>
         <div className='thumbnail-summary'>{props.summary}</div>
       </Link>

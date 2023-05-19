@@ -25,3 +25,8 @@
   font-size: larger;
   font-family: 'Brush Script MT', cursive;
 }
+
+.thumbnail-link:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
