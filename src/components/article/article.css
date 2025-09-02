@@ -16,10 +16,46 @@
     max-width: 60vw;
 }
 
+.article pre {
+    background: #181a1b; /* match your main background */
+    color: #eaeaea;
+    padding: 0; /* remove outer padding */
+    border-radius: 0.7em;
+    box-shadow: none; /* remove shadow/frame */
+    overflow-x: auto;
+    font-size: 1.05em;
+    margin: 1.5em 0;
+    position: relative;
+}
+
 .article code {
-    max-width: 60vw;
-    display: block;
-    white-space: pre-wrap   
+    background: none;
+    color: inherit;
+    font-family: 'Fira Mono', 'Menlo', 'Monaco', 'Consolas', monospace;
+    font-size: 1em;
+    padding: 1.2em 1em 1em 1em; /* add padding inside code block */
+    border: none;
+    white-space: pre;
+    display: block; /* ensure block layout */
+}
+
+.copy-btn {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    background: #23272a;
+    color: #fff;
+    border: none;
+    border-radius: 0.4em;
+    padding: 0.35em 0.9em;
+    cursor: pointer;
+    font-size: 0.98em;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+    transition: background 0.2s;
+    z-index: 2;
+}
+.copy-btn:hover {
+    background: #2c3136;
 }
 
 .article p > img {
