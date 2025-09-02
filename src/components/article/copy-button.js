@@ -20,25 +20,19 @@ const CopyableCodeBlock = ({ inline, className, children, ...props }) => {
   }
 
   return (
-    <div style={{ position: "relative" }}>
-      <button
-        onClick={handleCopy}
-        style={{
-          position: "absolute",
-          top: 8,
-          right: 8,
-          zIndex: 2,
-          fontSize: "0.9rem",
-          padding: "0.2rem 0.7rem",
-          borderRadius: "0.3rem",
-          border: "none",
-          background: copied ? "#6cb4ff" : "#23272a",
-          color: "#fff",
-          cursor: "pointer",
-        }}
-      >
-        {copied ? "Copied!" : "Copy"}
-      </button>
+    <div className="modern-code-block">
+      <div className="code-block-header">
+        <button
+          type="button"
+          className="modern-icon-copy"
+          aria-label="Copy code sample"
+          title="Copy code sample"
+          onClick={handleCopy}
+        >
+          <span className="material-icons">content_copy</span>
+        </button>
+        {copied && <span className="modern-tooltip">Copied!</span>}
+      </div>
       <pre className={className} {...props}>
         <code>{code}</code>
       </pre>

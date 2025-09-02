@@ -6,6 +6,7 @@ import ReactMarkdown from 'react-markdown'
 import './article.css';
 import NotFound from '../errors/not-found/not-found';
 import { baseUrl } from '../../utils/config';
+import CopyableCodeBlock from './copy-button';
 
 const getArticleById = async (id, setArticleState) => {
   try {
@@ -34,7 +35,18 @@ const Article = (props) => {
       <div className="article">
       <h1>{articleState.title}</h1>
         {/* eslint-disable-next-line */}
-        <ReactMarkdown children={articleState.article} />
+        <ReactMarkdown
+          children={articleState.article}
+          components={{
+            code({node, inline, className, children, ...props}) {
+              return (
+                <CopyableCodeBlock inline={inline} className={className} {...props}>
+                  {children}
+                </CopyableCodeBlock>
+              );
+            }
+          }}
+        />
       </div>
     </div>
 

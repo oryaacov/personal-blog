@@ -62,3 +62,142 @@
     display: block;
     margin: 0 auto;
   }
+
+.devsite-code-block {
+    position: relative;
+}
+
+.devsite-icon-copy {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    background: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    cursor: pointer;
+    transition: background 0.2s;
+    z-index: 2;
+}
+
+.devsite-icon-copy:hover {
+    background: #e0e0e0;
+}
+
+.devsite-icon-copy .material-icons {
+    font-size: 22px;
+}
+
+.devsite-tooltip {
+    position: absolute;
+    top: 52px;
+    right: 18px;
+    background: #23272a;
+    color: #fff;
+    padding: 0.3em 0.8em;
+    border-radius: 0.4em;
+    font-size: 0.95em;
+    white-space: nowrap;
+    z-index: 3;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+.modern-code-block {
+    /* Remove background and border-radius */
+    background: none;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 1.2em 0 0.5em 0; /* reduce bottom margin */
+    font-size: 1em;
+    overflow: visible;
+    max-width: 100%;
+}
+
+.modern-code-block pre {
+    background: #181a1b;
+    color: #eaeaea;
+    padding: 1em 1.2em 0.7em 1.2em; /* reduce bottom padding */
+    border-radius: 0.5em;
+    margin: 0; /* remove extra margin */
+    overflow-x: auto;
+    font-family: 'Fira Mono', 'Menlo', 'Monaco', 'Consolas', monospace;
+    box-shadow: none;
+}
+
+.code-block-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0.1em 0.7em 0 0.7em; /* reduce top/bottom padding */
+    background: transparent;
+    position: relative;
+    height: 32px; /* match button height, no extra space */
+}
+
+.modern-icon-copy {
+    background: #fff;
+    color: #444;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.10);
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-left: 0.5em;
+    position: relative;
+    z-index: 2;
+}
+
+.modern-icon-copy:hover {
+    background: #e0e0e0;
+}
+
+.modern-icon-copy .material-icons {
+    font-size: 20px;
+}
+
+.modern-tooltip {
+    position: absolute;
+    right: 0;
+    background: #23272a;
+    color: #fff;
+    padding: 0.2em 0.7em;
+    border-radius: 0.4em;
+    font-size: 0.92em;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    z-index: 3;
+    pointer-events: none;
+    opacity: 0.95;
+    transition: opacity 0.2s;
+}
+
+/* Prettier scrollbar for code blocks */
+.modern-code-block pre::-webkit-scrollbar {
+    height: 8px;
+    background: #23272a;
+    border-radius: 4px;
+}
+.modern-code-block pre::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 4px;
+}
+.modern-code-block pre::-webkit-scrollbar-thumb:hover {
+    background: #666;
+}
+
+/* Firefox */
+.modern-code-block pre {
+    scrollbar-color: #444 #23272a;
+    scrollbar-width: thin;
+    font-size: 0.75em;
+}
