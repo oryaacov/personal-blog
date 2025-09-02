@@ -5,10 +5,11 @@ import axios from 'axios';
 import ReactMarkdown from 'react-markdown'
 import './article.css';
 import NotFound from '../errors/not-found/not-found';
+import { baseUrl } from '../../utils/config';
 
 const getArticleById = async (id, setArticleState) => {
   try {
-    const article = (await axios.get(`/api/v1/articles/${id}`)).data;
+    const article = (await axios.get(`${baseUrl}/api/v1/articles/${id}`)).data;
 
     setArticleState({ id, article: article.body, loading: false, title: article.title });
   } catch (e) {
