@@ -4,7 +4,6 @@ import { spinner } from '../common/spinner';
 import axios from 'axios';
 import ReactMarkdown from 'react-markdown'
 import './article.css';
-import remarkGfm from 'remark-gfm'
 import NotFound from '../errors/not-found/not-found';
 
 const getArticleById = async (id, setArticleState) => {
