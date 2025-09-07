@@ -24,7 +24,7 @@ const Article = (props) => {
 
   useEffect(() => {
     getArticleById(id, setArticleState);
-  }, []);
+  }, []); 
 
   if (articleState.error){
     return <NotFound/>;
@@ -36,7 +36,6 @@ const Article = (props) => {
       <h1>{articleState.title}</h1>
         {/* eslint-disable-next-line */}
         <ReactMarkdown
-          children={articleState.article}
           components={{
             code({node, inline, className, children, ...props}) {
               return (
@@ -46,7 +45,9 @@ const Article = (props) => {
               );
             }
           }}
-        />
+        >
+          {articleState.article}
+        </ReactMarkdown>
       </div>
     </div>
 
