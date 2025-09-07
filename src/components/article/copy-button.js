@@ -24,14 +24,13 @@ const CopyableCodeBlock = ({ inline, className, children, ...props }) => {
       <div className="code-block-header">
         <button
           type="button"
-          className="modern-icon-copy"
+          className={`modern-icon-copy${copied ? " copied" : ""}`}
           aria-label="Copy code sample"
           title="Copy code sample"
           onClick={handleCopy}
         >
-          <span className="material-icons">content_copy</span>
+          {copied ? <span className="copied-emoji">&#10003;</span> : <span className="material-icons">content_copy</span>}
         </button>
-        {copied && <span className="modern-tooltip">Copied!</span>}
       </div>
       <pre className={className} {...props}>
         <code>{code}</code>
