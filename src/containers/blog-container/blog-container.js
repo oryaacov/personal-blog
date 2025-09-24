@@ -11,6 +11,10 @@ const BlogContainer = () => {
         path="/"
         exact
         element={<ArticleContainer />} />
+      <Route
+        path="/self-improvment"
+        exact
+        element={<ArticleContainer />} />
       <Route path="/about" exact element={<About />} />
       <Route path="/articles/:id" element={<Article />} />
     </Routes>

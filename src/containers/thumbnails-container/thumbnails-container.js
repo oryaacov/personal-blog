@@ -5,9 +5,12 @@ import './thumbnails-container.css';
 import axios from 'axios';
 import { spinner } from '../../components/common/spinner';
 import { baseUrl } from '../../utils/config';
-const loadThumbnails = async () => {
+import { useLocation } from 'react-router-dom';
+
+
+const loadThumbnails = async (category) => {
   return (
-    await axios.get(`${baseUrl}/api/v1/thumbnails`)
+    await axios.get(`${baseUrl}/api/v1/thumbnails/${category}`)
   ).data;
 }
 
@@ -27,9 +30,10 @@ const generateThumbnails = (thumbnails) => {
 
 const ArticleContainer = (props) => {
   const [state, setState] = useState({ thumbnails: [], loading: true })
+  const category = useLocation().pathname.split('/').pop();
 
   useEffect(async () => {
-    const thumbnails = await loadThumbnails();
+    const thumbnails = await loadThumbnails(category);
     setState({ thumbnails, loading: false })
   }, []);
 
