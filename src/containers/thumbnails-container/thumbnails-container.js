@@ -1,11 +1,10 @@
-
 import React, { useEffect, useState } from 'react';
 import ArticleThumbnail from '../../components/thumbnails/article-thumbnail';
 import './thumbnails-container.css';
 import axios from 'axios';
 import { spinner } from '../../components/common/spinner';
 import { baseUrl } from '../../utils/config';
-import { useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 
 const loadThumbnails = async (category) => {
@@ -28,16 +27,22 @@ const generateThumbnails = (thumbnails) => {
 }
 
 
-const ArticleContainer = (props) => {
-  const [state, setState] = useState({ thumbnails: [], loading: true })
-  const category = useLocation().pathname.split('/').pop();
+const ArticleContainer = () => {
+  const { category } = useParams();
+  const [state, setState] = useState({ thumbnails: [], loading: true });
 
-  useEffect(async () => {
-    const thumbnails = await loadThumbnails(category);
-    setState({ thumbnails, loading: false })
-  }, []);
+  useEffect(() => {
+    const fetchThumbnails = async () => {
+      setState({ thumbnails: [], loading: true });
+      const thumbnails = await loadThumbnails(category);
+      setState({ thumbnails, loading: false });
+    };
+    fetchThumbnails();
+  }, [category]);
 
-  return state.loading ? spinner : <div className='thumbnails-container'>{generateThumbnails(state.thumbnails)}</div>;
+  return state.loading
+    ? spinner
+    : <div className='thumbnails-container'>{generateThumbnails(state.thumbnails)}</div>;
 }
 
 export default ArticleContainer;
