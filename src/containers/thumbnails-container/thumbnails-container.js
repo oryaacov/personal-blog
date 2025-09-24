@@ -5,7 +5,7 @@ import axios from 'axios';
 import { spinner } from '../../components/common/spinner';
 import { baseUrl } from '../../utils/config';
 import { useParams } from 'react-router-dom';
-
+import NotFound from '../../components/errors/not-found/not-found';
 
 const loadThumbnails = async (category) => {
   return (
@@ -34,15 +34,23 @@ const ArticleContainer = () => {
   useEffect(() => {
     const fetchThumbnails = async () => {
       setState({ thumbnails: [], loading: true });
+
       const thumbnails = await loadThumbnails(category);
+      
       setState({ thumbnails, loading: false });
     };
     fetchThumbnails();
   }, [category]);
 
-  return state.loading
-    ? spinner
-    : <div className='thumbnails-container'>{generateThumbnails(state.thumbnails)}</div>;
+  if (state.loading) {
+    return spinner;
+  }
+  
+  if (state.thumbnails.length === 0){
+    return <NotFound/>;
+  }
+
+  return <div className='thumbnails-container'>{generateThumbnails(state.thumbnails)}</div>;
 }
 
 export default ArticleContainer;

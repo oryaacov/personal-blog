@@ -11,8 +11,13 @@ const Navbar = (props) => {
         </Link>
       </div>
       <div className="links-flex">
-        <Link className="link" to="/">
-          Articles
+        <Link className="link" to="/tech">
+          Tech
+        </Link>
+      </div>
+      <div className="links-flex">
+        <Link className="link" to="/self-improvement">
+          Self improvement
         </Link>
       </div>
     </div>
