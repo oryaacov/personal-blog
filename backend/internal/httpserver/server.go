@@ -26,6 +26,7 @@ type HTTPServerDeps struct {
 
 func (s *HTTPServer) setRoutes() {
 	s.Router.GET("/api/v1/thumbnails", s.deps.ThumbnailsController.GetAll)
+	s.Router.GET("/api/v1/thumbnails/:category", s.deps.ThumbnailsController.GetByCategory)
 	s.Router.GET("/api/v1/articles/:id", s.deps.ArticleController.GetArticleById)
 }
 

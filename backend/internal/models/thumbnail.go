@@ -7,4 +7,5 @@ type Thumbnail struct {
 	Summary     string `json:"summary" bson:"summary"`
 	PublishedAt uint   `json:"date" bson:"publish_date"`
 	Priority    uint   `json:"priority" bson:"priority"`
+	Category	string `json:"category" bson:"category"`
 }

@@ -50,10 +50,25 @@ func (h *ThumbnailsHandler) GetAll(ctx context.Context) ([]models.Thumbnail, err
 		return nil, fmt.Errorf("failed to query thumbnails with: %w", err)
 	}
 
+	return h.buildArticles(ctx, cur)
+}
+
+
+func (h *ThumbnailsHandler) GetByCategory(ctx context.Context, category string) ([]models.Thumbnail, error) {
+	cur, err := h.deps.Collection.Find(ctx, bson.M{"category": category}, getAllSortByPriorityDescOptions)
+	if err != nil {
+		return nil, fmt.Errorf("failed to query thumbnails with: %w", err)
+	}
+
+	return h.buildArticles(ctx, cur)
+}
+
+
+func (h *ThumbnailsHandler) buildArticles(ctx context.Context, cur *mongo.Cursor) ([]models.Thumbnail, error) {
 	res := make([]models.Thumbnail, 0, thumbnailsLimit)
 	for cur.Next(ctx) {
 		var thumbnail models.Thumbnail
-		err = cur.Decode(&thumbnail)
+		err := cur.Decode(&thumbnail)
 		if err != nil {
 			return nil, fmt.Errorf("failed to decode thumbnail with: %w", err)
 		}
@@ -63,4 +78,3 @@ func (h *ThumbnailsHandler) GetAll(ctx context.Context) ([]models.Thumbnail, err
 
 	return res, nil
 }
-
